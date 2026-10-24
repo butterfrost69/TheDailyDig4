@@ -1,0 +1,131 @@
+# Netlify Configuration for The Daily Dig
+# Pure static site — no build step required!
+
+[build]
+  publish = "."
+
+# ---------------------------------------------------------------------------
+# IMAGE PATH REWRITES
+# Netlify "Pretty URLs" appends trailing slashes which causes browsers to
+# resolve relative image paths into subdirectories that don't exist.
+# These 200-status rewrites transparently serve images from the real location.
+# ---------------------------------------------------------------------------
+
+[[redirects]]
+  from = "/articles/assets/images/*"
+  to = "/assets/images/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/articles/images/*"
+  to = "/assets/images/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/about/assets/images/*"
+  to = "/assets/images/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/about/images/*"
+  to = "/assets/images/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/archives/assets/images/*"
+  to = "/assets/images/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/archives/images/*"
+  to = "/assets/images/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/investigations/assets/images/*"
+  to = "/assets/images/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/investigations/images/*"
+  to = "/assets/images/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/research-notes/assets/images/*"
+  to = "/assets/images/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/images/*"
+  to = "/assets/images/:splat"
+  status = 200
+
+# CSS/JS rewrites for pages served with pretty-URL trailing slashes
+[[redirects]]
+  from = "/articles/css/*"
+  to = "/css/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/articles/js/*"
+  to = "/js/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/about/css/*"
+  to = "/css/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/about/js/*"
+  to = "/js/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/archives/css/*"
+  to = "/css/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/archives/js/*"
+  to = "/js/:splat"
+  status = 200
+
+# 404 fallback — must come LAST
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
+# ---------------------------------------------------------------------------
+# HEADERS
+# ---------------------------------------------------------------------------
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"

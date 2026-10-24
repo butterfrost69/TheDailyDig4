@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>The Daily Dig — Independent Watchdog &amp; Photojournalism Dispatches</title>
+  <meta name="description" content="The Daily Dig: Uncompromising journalism, frontline photojournalism, memorial tributes, and national dispatches. Published by our Senior Correspondent.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/newspaper-components.css">
+  <link rel="stylesheet" href="css/print.css" media="print">
+</head>
+<body>
+
+  <!-- ========================================================
+       TOP UTILITY BAR (Reading Controls, Tip Button, Search)
+       ======================================================== -->
+  <aside class="utility-bar" aria-label="Reading Controls and Quick Links">
+    <div class="utility-container">
+      <div class="utility-left">
+        <span class="edition-badge">Special Visual Edition</span>
+        <span>Blackwood Vale Bureau</span>
+        <span>&bull;</span>
+        <span id="current-date-display">Friday, October 23, 2026</span>
+        <span>&bull;</span>
+        <span>Late Wire Dispatch</span>
+      </div>
+      <div class="utility-right">
+        <button id="theme-toggle-btn" class="utility-btn" title="Toggle Newspaper Background Theme">?? Theme: Newsprint</button>
+        <button id="font-decrease-btn" class="utility-btn font-scaler" title="Decrease font size">A-</button>
+        <button id="font-increase-btn" class="utility-btn font-scaler" title="Increase font size">A+</button>
+        <button class="utility-btn tip-btn open-tip-modal">? Secure Tip Line</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ========================================================
+       BROADSHEET MASTHEAD
+       ======================================================== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="masthead-meta-top">
+        <div class="meta-col">
+          <strong>Vol. XXVIII &bull; No. 142</strong><br>
+          <span>Established 1998</span>
+        </div>
+        <div class="meta-col text-center">
+          <img src="assets/images/masthead-seal.svg" alt="The Daily Dig Editorial Crest" width="220" height="50" style="vertical-align:middle;">
+        </div>
+        <div class="meta-col text-right">
+          <strong>Fifty Cents</strong><br>
+          <span>"Truth Does Not Fear The Spade"</span>
+        </div>
+      </div>
+
+      <div class="masthead-center">
+        <a href="index.html" class="masthead-title-link">
+          <h1 class="masthead-title">The Daily Dig</h1>
+        </a>
+        <p class="masthead-tagline">"Veritas Fodere Non Timet" &mdash; Independent Watchdog Journalism &amp; Visual Dispatches</p>
+      </div>
+
+      <div class="masthead-meta-bottom">
+        <div><strong>PUBLISHER &amp; SENIOR CORRESPONDENT:</strong> OUR SENIOR CORRESPONDENT</div>
+        <div><strong>SPECIALTY:</strong> INVESTIGATIVE DISPATCHES &amp; FIELD PHOTOJOURNALISM</div>
+        <div><strong>DESK:</strong> CENTRAL EDITORIAL BUREAU</div>
+      </div>
+    </div>
+
+    <!-- PRIMARY NAVIGATION -->
+    <nav class="main-nav" aria-label="Main Navigation">
+      <div class="nav-container">
+        <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">&#9776; Menu</button>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html" class="nav-link active">Front Page</a></li>
+          <li class="nav-item"><a href="articles/photojournalism-archive.html" class="nav-link">?? Photo Desk (8 Plates)</a></li>
+          <li class="nav-item"><a href="articles/tragic-death-of-wilhelm.html" class="nav-link">Tribute: Wilhelm</a></li>
+          <li class="nav-item"><a href="articles/paul-george-mvp.html" class="nav-link">Sports: Paul George MVP</a></li>
+          <li class="nav-item"><a href="archives.html" class="nav-link">Article Archives</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About the Reporter</a></li>
+        </ul>
+        <button class="nav-search-trigger open-search-modal" title="Search archives (Ctrl+K)">
+          <span>??</span> <span>Search Archive</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ========================================================
+       BREAKING NEWS TICKER
+       ======================================================== -->
+  <div class="breaking-ticker" role="region" aria-label="Breaking Bulletins">
+    <div class="ticker-inner">
+      <div class="ticker-label">
+        <span class="ticker-pulse"></span>
+        <span>Special Wire</span>
+      </div>
+      <div class="ticker-content">
+        <a href="articles/tragic-death-of-wilhelm.html" class="ticker-link">
+          <strong>BORDERLANDS BULLETIN:</strong> Cybernetic humanitarian Wilhelm tragically killed at End of the Line rail crossing in senseless gang ambush; Authorities issue gang alert &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       MAIN EDITORIAL CONTENT
+       ======================================================== -->
+  <main class="site-main">
+
+    <!-- ========================================================
+         SECTION 1: PRIMARY FOCUS — PHOTOJOURNALISM PORTFOLIO
+         Focuses primarily on the photos of the user
+         ======================================================== -->
+    <section class="photo-focus-banner" aria-label="Chief Correspondent Photographic Portfolio">
+      <div class="photo-banner-header">
+        <div>
+          <span class="kicker" style="color:var(--accent-red);font-weight:700;">FEATURED VISUAL EXHIBITION &bull; THE CORRESPONDENT IN THE FIELD</span>
+          <h2 class="photo-banner-title">Through the Lens: Field Dispatches &amp; Photographic Folio</h2>
+          <p style="font-family:var(--font-body);font-size:0.95rem;color:var(--text-secondary);margin-top:4px;">
+            An exclusive gallery documenting life behind the typewriter, on the road, and across the investigative beat. Click any master plate to view full size.
+          </p>
+        </div>
+        <a href="articles/photojournalism-archive.html" class="photo-banner-badge" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;">
+          <span>8 Master Plates</span> &rarr;
+        </a>
+      </div>
+
+      <!-- Grid of all 8 Photos of the User -->
+      <div class="user-gallery-grid">
+
+        <!-- Photo 1: Master Portrait -->
+        <div class="photo-card" data-full="assets/images/pictureme1.jpg" data-title="Plate I &bull; The Editorial Command" data-desc="Official masthead portrait of our Senior Correspondent and Publisher at the newsroom desk.">
+          <div class="photo-card-img-wrapper">
+            <img src="assets/images/pictureme1.jpg" alt="Senior Correspondent at the desk" class="photo-card-img">
+            <span class="photo-card-stamp">PLATE #01 &bull; LEAD</span>
+          </div>
+          <div class="photo-card-caption">
+            <strong>Plate I &bull; The Editorial Command</strong>
+            Anchor of the bureau desk during late edition proofing.
+          </div>
+          <div class="photo-card-meta">
+            35mm Prime &bull; Bureau Desk &bull; Master Archive
+          </div>
+        </div>
+
+        <!-- Photo 2 -->
+        <div class="photo-card" data-full="assets/images/pictureme2.jpg" data-title="Plate II &bull; Field Assignment" data-desc="On assignment along the valley periphery gathering firsthand accounts.">
+          <div class="photo-card-img-wrapper">
+            <img src="assets/images/pictureme2.jpg" alt="On field assignment" class="photo-card-img" loading="lazy">
+            <span class="photo-card-stamp">PLATE #02</span>
+          </div>
+          <div class="photo-card-caption">
+            <strong>Plate II &bull; Field Reconnaissance</strong>
+            Tracking down leads and verifying physical manifests.
+          </div>
+          <div class="photo-card-meta">
+            35mm Rangefinder &bull; Field Dispatch
+          </div>
+        </div>
+
+        <!-- Photo 3 -->
+        <div class="photo-card" data-full="assets/images/pictureme3.jpg" data-title="Plate III &bull; Investigative Vigil" data-desc="A candid capture reflecting deep focus during active reporting.">
+          <div class="photo-card-img-wrapper">
+            <img src="assets/images/pictureme3.jpg" alt="Investigative focus" class="photo-card-img" loading="lazy">
+            <span class="photo-card-stamp">PLATE #03</span>
+          </div>
+          <div class="photo-card-caption">
+            <strong>Plate III &bull; Investigative Vigil</strong>
+            Evaluating sources and cross-examining public dockets.
+          </div>
+          <div class="photo-card-meta">
+            Available Light &bull; On Scene
+          </div>
+        </div>
+
+        <!-- Photo 4 -->
+        <div class="photo-card" data-full="assets/images/pictureme4.jpg" data-title="Plate IV &bull; Between Deadlines" data-desc="A rare informal moment between wire deadlines and print runs.">
+          <div class="photo-card-img-wrapper">
+            <img src="assets/images/pictureme4.jpg" alt="Correspondent at ease" class="photo-card-img" loading="lazy">
+            <span class="photo-card-stamp">PLATE #04</span>
+          </div>
+          <div class="photo-card-caption">
+            <strong>Plate IV &bull; Between Deadlines</strong>
+            Taking a breather as tomorrow's front-page leads settle.
+          </div>
+          <div class="photo-card-meta">
+            50mm Lens &bull; Town Center
+          </div>
+        </div>
+
+        <!-- Photo 5 -->
+        <div class="photo-card" data-full="assets/images/pictureme5.jpg" data-title="Plate V &bull; On the Trail" data-desc="Tracking evidence across the outer borders of the county.">
+          <div class="photo-card-img-wrapper">
+            <img src="assets/images/pictureme5.jpg" alt="On the trail" class="photo-card-img" loading="lazy">
+            <span class="photo-card-stamp">PLATE #05</span>
+          </div>
+          <div class="photo-card-caption">
+            <strong>Plate V &bull; On the Trail</strong>
+            Verifying whistleblower testimonies in the field.
+          </div>
+          <div class="photo-card-meta">
+            Wide Angle &bull; County Border
+          </div>
+        </div>
+
+        <!-- Photo 6 -->
+        <div class="photo-card" data-full="assets/images/pictureme6.jpg" data-title="Plate VI &bull; The Sharp Observer" data-desc="Clear gaze and resolute dedication to journalistic integrity.">
+          <div class="photo-card-img-wrapper">
+            <img src="assets/images/pictureme6.jpg" alt="The Sharp Observer" class="photo-card-img" loading="lazy">
+            <span class="photo-card-stamp">PLATE #06</span>
+          </div>
+          <div class="photo-card-caption">
+            <strong>Plate VI &bull; The Sharp Observer</strong>
+            Reflecting tenacity, watchfulness, and editorial independence.
+          </div>
+          <div class="photo-card-meta">
+            Master Portrait &bull; Bureau Archive
+          </div>
+        </div>
+
+        <!-- Photo 7 -->
+        <div class="photo-card" data-full="assets/images/pictureme7.jpg" data-title="Plate VII &bull; Evening Reflections" data-desc="Reviewing the evening telegraphic dispatches before press run.">
+          <div class="photo-card-img-wrapper">
+            <img src="assets/images/pictureme7.jpg" alt="Evening reflections" class="photo-card-img" loading="lazy">
+            <span class="photo-card-stamp">PLATE #07</span>
+          </div>
+          <div class="photo-card-caption">
+            <strong>Plate VII &bull; Evening Reflections</strong>
+            Reviewing the late wire before the print cylinders roll.
+          </div>
+          <div class="photo-card-meta">
+            Twilight Plate &bull; Editorial Room
+          </div>
+        </div>
+
+        <!-- Photo 8 -->
+        <div class="photo-card" data-full="assets/images/pictureme8.jpg" data-title="Plate VIII &bull; The Final Dispatch" data-desc="Standing ready for breaking news on the threshold of the pressroom.">
+          <div class="photo-card-img-wrapper">
+            <img src="assets/images/pictureme8.jpg" alt="The Final Dispatch" class="photo-card-img" loading="lazy">
+            <span class="photo-card-stamp">PLATE #08</span>
+          </div>
+          <div class="photo-card-caption">
+            <strong>Plate VIII &bull; The Final Dispatch</strong>
+            Ready for whichever investigation breaks next.
+          </div>
+          <div class="photo-card-meta">
+            50mm Standard &bull; Pressroom Threshold
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 2: STREAMLINED ARTICLES GRID (Decreased Article Count)
+         Features Wilhelm Joke Article & Paul George MVP Article
+         ======================================================== -->
+    <div class="broadsheet-grid">
+
+      <!-- LEFT COLUMN: LEAD EDITORIAL DISPATCHES -->
+      <section class="column-divider-right" aria-label="Lead News Dispatches">
+
+        <!-- ARTICLE 1: THE TRAGIC DEATH OF WILHELM (Borderlands 2 Joke Article) -->
+        <article class="article-lead-card">
+          <span class="kicker">Special Eulogy &bull; Tragic Loss of a Civic Titan</span>
+          <h2 class="lead-headline">
+            <a href="articles/tragic-death-of-wilhelm.html">
+              FALL OF A NOBLE GUARDIAN: Community Mourns Cybernetic Humanitarian Wilhelm Slain in Senseless Gang Violence
+            </a>
+          </h2>
+          <p class="subheadline">
+            A selfless pioneer of robotic prosthetics, devoted neighborhood protector, and beloved titan of duty was ambushed at the snowy End of the Line rail crossing by an unhinged gang of heavily armed vagrants; authorities plead for public assistance.
+          </p>
+
+          <div class="byline-bar">
+            <span>By <a href="about.html" class="byline-author">Our Senior Correspondent</a></span>
+            <span class="byline-dot">&bull;</span>
+            <span>Published: October 20, 2026</span>
+            <span class="byline-dot">&bull;</span>
+            <span>Reading Time: 5 min</span>
+            <span class="byline-dot">&bull;</span>
+            <button class="print-action-btn" title="Print this broadsheet dispatch">?? Print Eulogy</button>
+          </div>
+
+          <!-- Hero Media: Wilhelm -->
+          <figure class="lead-media-wrapper">
+            <a href="articles/tragic-death-of-wilhelm.html">
+              <picture>
+                <source srcset="assets/images/wilhelm.webp" type="image/webp">
+                <img src="assets/images/wilhelm.jpg" alt="Wilhelm in an honorable portrait" class="lead-image" style="max-height:420px;object-fit:contain;background:#1a1a1a;">
+              </picture>
+            </a>
+            <figcaption class="media-caption">
+              <strong>PANDORA'S FALLEN SON:</strong> Wilhelm in an official civic registration portrait. Known for his humility, charitable robotic clinics, and towering protective presence, he fell victim to an unprovoked gang ambush at the Tundra Express freight line.
+              <span class="media-credit">Archive Photography &bull; Frontier Constabulary</span>
+            </figcaption>
+          </figure>
+
+          <!-- Lead Body Columns -->
+          <div class="lead-body-columns">
+            <p class="drop-cap">
+              <strong>TUNDRA EXPRESS &mdash;</strong> The icy wind blowing through the mountain pass carried a profound silence yesterday morning as our community woke to devastating news: Wilhelm, the gentle cybernetic guardian whose imposing titanium frame harbored one of the most generous hearts in the territory, was murdered in a cowardly act of gang violence at the remote End of the Line railway crossing.
+            </p>
+            <p>
+              According to regional peacekeepers, Wilhelm was on a solo charitable transport mission, safely escorting an industrial power core destined to provide emergency winter heating and municipal water purification for vulnerable frontier settlements. Witnesses at the train depot state that Wilhelm had stepped off the locomotive to inspect track switches and offer hot coffee to local rail workers when the crossing was suddenly overrun by a coordinated syndicate of heavily armed marauders.
+            </p>
+            <p>
+              Despite Wilhelm's calm attempts to de-escalate the confrontation with polite verbal warnings, the gang of drifters unleashed a torrent of high-explosive artillery, incendiary assault rounds, and corrosive grenades. In his final moments, his beloved airborne assistance drones—affectionately christened <em>Wolf</em> and <em>Saint</em>, which were programmed solely to administer soothing first-aid salves to wounded travelers—were shot down before the heartless attackers stripped his power core and vanished into the snow.
+            </p>
+          </div>
+
+          <!-- Pull Quote -->
+          <blockquote class="editorial-pull-quote">
+            "Wilhelm didn’t have a mean bolt in his entire chassis. He installed his hydraulic arms not to wage war, but to lift stranded school carriages out of snowbanks and clear rocks from community fields without tiring."
+            <cite class="pull-quote-citation">&mdash; Sheriff Martha Albright, Frontier Constabulary</cite>
+          </blockquote>
+
+          <div style="margin-top: 14px;">
+            <a href="articles/tragic-death-of-wilhelm.html" style="font-family:var(--font-ui);font-weight:700;color:var(--accent-red);text-transform:uppercase;font-size:0.86rem;letter-spacing:0.8px;">
+              Read Full Memorial, Eyewitness Accounts &amp; Suspect Bulletin &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- ARTICLE 2: PAUL GEORGE WINS MVP -->
+        <article class="secondary-card" style="margin-top: 28px; border-top: 3px solid var(--border-dark); padding-top: 24px;">
+          <span class="kicker">Sports Wire &bull; Association MVP Honors</span>
+          <h3 class="card-headline" style="font-size: 1.8rem;">
+            <a href="articles/paul-george-mvp.html">
+              HISTORIC CORONATION: Paul George Crowned NBA Most Valuable Player After Electrifying Season
+            </a>
+          </h3>
+          <div class="byline-bar" style="border:none;padding:2px 0;margin-bottom:12px;">
+            <span>By Senior Correspondent &bull; Oct 23, 2026 &bull; Sports Desk</span>
+          </div>
+
+          <div style="display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start;margin-bottom:14px;">
+            <div style="flex:1;min-width:240px;">
+              <a href="articles/paul-george-mvp.html">
+                <img src="assets/images/paul-george.jpg" alt="Paul George celebrating MVP triumph" style="width:100%;height:auto;border:1px solid var(--border-dark);display:block;box-shadow:var(--shadow-sm);">
+              </a>
+              <div style="font-family:var(--font-mono);font-size:0.75rem;color:var(--text-muted);margin-top:4px;">
+                Maurice Podoloff Trophy: Paul George captures 94 of 100 first-place votes.
+              </div>
+            </div>
+            <div style="flex:1.4;min-width:260px;">
+              <p class="card-snippet" style="font-size:1rem;line-height:1.65;">
+                In one of the most dominant two-way campaigns this decade, Paul George was officially named the NBA's Most Valuable Player on Thursday. Averaging an extraordinary 28.5 points, 7.8 rebounds, 5.2 assists, and a league-leading 2.3 steals per contest, George led his squad to 58 regular-season victories while executing lockdown defense on rival superstar wings.
+              </p>
+              <div style="margin-top:12px;">
+                <a href="articles/paul-george-mvp.html" style="font-family:var(--font-ui);font-weight:700;color:var(--accent-red);font-size:0.86rem;text-transform:uppercase;">
+                  Read Complete Championship Story &amp; Voting Breakdown &rarr;
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- RIGHT COLUMN: SIDEBAR DOSSIER & EDITOR'S DESK -->
+      <aside aria-label="Editor Desk and Intelligence">
+
+        <!-- Editor-in-Chief & Publisher Spotlight -->
+        <div class="sidebar-box">
+          <div class="sidebar-box-header">
+            <h3 class="sidebar-box-title">The Publisher's Ledger</h3>
+            <span class="sidebar-badge">DESK #01</span>
+          </div>
+          <div style="text-align:center;margin-bottom:12px;">
+            <img src="assets/images/pictureme1.jpg" alt="Our Senior Correspondent" style="width:100%;max-width:220px;height:auto;border:2px solid var(--border-dark);box-shadow:var(--shadow-sm);display:inline-block;">
+          </div>
+          <p style="font-family:var(--font-body);font-style:italic;font-size:0.92rem;line-height:1.55;color:var(--text-secondary);margin-bottom:10px;">
+            "A publication that covers its eyes when a gentle guardian is slain or turns away from documenting life with the camera will soon find its truth signed away. We keep our lenses polished and our spades sharp."
+          </p>
+          <div style="font-family:var(--font-ui);font-size:0.82rem;font-weight:700;color:var(--text-main);text-align:right;">
+            &mdash; Our Senior Correspondent &amp; Publisher
+          </div>
+          <div style="margin-top:12px;text-align:right;">
+            <a href="about.html" style="font-family:var(--font-ui);font-size:0.78rem;font-weight:700;color:var(--accent-red);text-transform:uppercase;">
+              About the Correspondent &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Gang Alert Wanted Factbox -->
+        <div class="investigation-factbox">
+          <div class="factbox-header">
+            <span class="factbox-title">Gang Intelligence Bulletin</span>
+            <span class="factbox-badge">WANTED</span>
+          </div>
+          <div class="factbox-row">
+            <span class="factbox-label">INCIDENT:</span>
+            <span class="factbox-val">End of the Line Rail Ambush (Wilhelm)</span>
+          </div>
+          <div class="factbox-row">
+            <span class="factbox-label">SUSPECTS:</span>
+            <span class="factbox-val">"The Vault Hunters" (4–6 Armed Marauders)</span>
+          </div>
+          <div class="factbox-row">
+            <span class="factbox-label">TACTICS:</span>
+            <span class="factbox-val">Phaselock bubbles, deployed turrets, haiku verse</span>
+          </div>
+          <div class="factbox-row">
+            <span class="factbox-label">STOLEN:</span>
+            <span class="factbox-val">Industrial Core for municipal winter power</span>
+          </div>
+          <div class="factbox-row" style="border-bottom:none;">
+            <span class="factbox-label">WARNING:</span>
+            <span class="factbox-val"><strong>Armed, unhinged &amp; dangerous</strong></span>
+          </div>
+        </div>
+
+        <!-- Quick Links Box -->
+        <div class="sidebar-box">
+          <div class="sidebar-box-header">
+            <h3 class="sidebar-box-title">Primary Dispatches</h3>
+          </div>
+          <ul class="dossier-list">
+            <li class="dossier-item">
+              <span class="dossier-status status-active">&bull; SPECIAL MEMORIAL</span>
+              <div class="dossier-headline">
+                <a href="articles/tragic-death-of-wilhelm.html">Tragic Slaying of Wilhelm</a>
+              </div>
+              <div style="font-size:0.8rem;color:var(--text-muted);margin-top:2px;">
+                End of the Line Crossing &bull; Gang ambush
+              </div>
+            </li>
+            <li class="dossier-item">
+              <span class="dossier-status status-active">&bull; SPORTS WIRE</span>
+              <div class="dossier-headline">
+                <a href="articles/paul-george-mvp.html">Paul George Crowned MVP</a>
+              </div>
+              <div style="font-size:0.8rem;color:var(--text-muted);margin-top:2px;">
+                Landslide victory &bull; 28.5 PPG, 7.8 RPG
+              </div>
+            </li>
+            <li class="dossier-item">
+              <span class="dossier-status status-subpoena">&bull; VISUAL DESK</span>
+              <div class="dossier-headline">
+                <a href="articles/photojournalism-archive.html">Correspondent Photo Portfolio</a>
+              </div>
+              <div style="font-size:0.8rem;color:var(--text-muted);margin-top:2px;">
+                8 High-Resolution Master Plates
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Confidential Tip Channel -->
+        <div class="sidebar-box" style="background-color:var(--bg-subtle);border-color:var(--accent-red);">
+          <div class="sidebar-box-header" style="border-color:var(--border-dark);">
+            <h3 class="sidebar-box-title" style="color:var(--accent-red);">Whistleblower Channel</h3>
+            <span class="stamp stamp-red">PROTECTED</span>
+          </div>
+          <p style="font-size:0.86rem;line-height:1.5;margin-bottom:12px;">
+            Do you hold intelligence or photographic sightings regarding the gang that ambushed Wilhelm, or confidential dispatches?
+          </p>
+          <button class="tip-submit-btn open-tip-modal" style="width:100%;">Transmit Anonymous Tip</button>
+          <div style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-muted);text-align:center;margin-top:8px;">
+            Encrypted buffer &bull; No tracking
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+
+  </main>
+
+  <!-- Photo Lightbox Modal -->
+  <div id="photo-lightbox-modal" class="photo-lightbox-modal" role="dialog" aria-modal="true" aria-label="Expanded Photo View">
+    <div class="photo-lightbox-content">
+      <button id="photo-lightbox-close" class="photo-lightbox-close" aria-label="Close photo view">&times;</button>
+      <div class="photo-lightbox-img-wrapper">
+        <img id="photo-lightbox-img" src="" alt="Enlarged photo view" class="photo-lightbox-img">
+      </div>
+      <div class="photo-lightbox-details">
+        <h4 id="photo-lightbox-title"></h4>
+        <p id="photo-lightbox-desc"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Search Modal -->
+  <div id="quick-search-modal" class="quick-search-modal" role="dialog" aria-modal="true" aria-label="Search Archives">
+    <div class="search-dialog">
+      <div class="search-dialog-header">
+        <h3>Search The Daily Dig Archives</h3>
+        <button id="close-search-modal" class="close-search-btn" aria-label="Close search">&times;</button>
+      </div>
+      <div class="search-dialog-body">
+        <input type="text" id="quick-search-input" class="search-input-field" placeholder="Search by name, Wilhelm, Paul George, MVP, photos..." autofocus>
+        <ul id="quick-search-results" class="search-results-list"></ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confidential Tip Modal -->
+  <div id="tip-modal-overlay" class="tip-modal-overlay" role="dialog" aria-modal="true" aria-label="Confidential Tip Submission">
+    <div class="tip-modal-box">
+      <div class="tip-modal-header">
+        <h3>Encrypted Whistleblower Drop</h3>
+        <button id="close-tip-modal" class="close-tip-btn" aria-label="Close tip dialog">&times;</button>
+      </div>
+      <div class="tip-modal-body">
+        <form id="tip-submission-form">
+          <div class="tip-input-group">
+            <label for="tip-target-case">Regarding Investigation / Dispatch</label>
+            <select id="tip-target-case">
+              <option value="wilhelm-ambush">Tragic Ambush of Wilhelm (End of the Line)</option>
+              <option value="gang-sightings">Vault Hunter Gang Sightings</option>
+              <option value="general-corruption">General Municipal Tip or Sports Lead</option>
+            </select>
+          </div>
+          <div class="tip-input-group">
+            <label for="tip-message">Confidential Statement / Intelligence</label>
+            <textarea id="tip-message" rows="5" placeholder="State observations, timestamps, or descriptions..." required></textarea>
+          </div>
+          <div class="tip-input-group">
+            <label for="tip-source-alias">Source Pseudonym (Optional)</label>
+            <input type="text" id="tip-source-alias" placeholder="e.g. 'Tundra Watchman', 'Rail Operator'">
+          </div>
+          <button type="submit" class="tip-submit-btn">Transmit Secure Information</button>
+        </form>
+        <div id="tip-success-box" class="tip-success-box"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       SITE FOOTER
+       ======================================================== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+
+        <div class="footer-col">
+          <h4>The Daily Dig</h4>
+          <p>
+            An independent investigative publication dedicated to accountability, public records access, and frontline photojournalism.
+          </p>
+          <p style="font-family:var(--font-mono);font-size:0.76rem;color:#8c8578;">
+            "Veritas Fodere Non Timet" &bull; Published by Our Senior Correspondent &bull; Press Room: Courthouse Mews.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Key Dispatches</h4>
+          <ul>
+            <li><a href="index.html">Front Page</a></li>
+            <li><a href="articles/photojournalism-archive.html">?? Chief Correspondent Photo Portfolio</a></li>
+            <li><a href="articles/tragic-death-of-wilhelm.html">Eulogy: The Tragic Death of Wilhelm</a></li>
+            <li><a href="articles/paul-george-mvp.html">Sports Desk: Paul George Wins MVP</a></li>
+            <li><a href="archives.html">Article Archives</a></li>
+            <li><a href="about.html">About the Publisher</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Confidential Desk</h4>
+          <p>
+            Whistleblowers may deliver manifests and physical film negatives to Box 19, General Post Office.
+          </p>
+          <p style="font-size:0.78rem;color:#a0988a;">
+            PGP: <code>8F2B 9901 44C2 D19E 77BA</code><br>
+            Signal: <code>@daily.dig.press</code>
+          </p>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>
+          &copy; 2026 The Daily Dig. All rights reserved.
+        </div>
+        <div class="footer-disclaimer">
+          Independent Broadsheet &bull; Photojournalism &amp; Special Dispatches
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>

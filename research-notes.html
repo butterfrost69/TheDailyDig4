@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Dignan's Field Scratchpad (Dossier DN-402) — The Daily Dig</title>
+  <meta name="description" content="Confidential research notes, evidence catalog, suspect timelines, and clues compiled by Dignan Dough.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/newspaper-components.css">
+  <link rel="stylesheet" href="css/print.css" media="print">
+  <style>
+    /* Detective Notebook & Clue Board Styling */
+    .scratchpad-desk {
+      background-color: var(--bg-card);
+      border: 3px double var(--border-dark);
+      padding: 24px;
+      margin-bottom: 32px;
+      position: relative;
+    }
+
+    .desk-stamp-top {
+      position: absolute;
+      top: 16px;
+      right: 24px;
+    }
+
+    .clue-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0 24px 0;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .clue-filter-btn {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-dark);
+      padding: 6px 12px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--text-main);
+      transition: all 0.15s;
+    }
+
+    .clue-filter-btn:hover {
+      border-color: var(--accent-red);
+      background-color: var(--bg-subtle);
+    }
+
+    .clue-filter-btn.active {
+      background-color: var(--accent-red);
+      color: #fff;
+      border-color: var(--accent-red);
+    }
+
+    .clue-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .clue-card {
+      background-color: #fffdf9;
+      border: 1px solid #dcd4c3;
+      border-top: 3px solid var(--border-dark);
+      padding: 18px;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.04);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.15s, border-color 0.15s;
+    }
+
+    .clue-card:hover {
+      border-top-color: var(--accent-red);
+      transform: translateY(-2px);
+    }
+
+    .clue-card.clue-resolved {
+      opacity: 0.7;
+      background-color: #f5f4ef;
+      border-top-color: #10b981;
+    }
+
+    .clue-card.clue-resolved .clue-title {
+      text-decoration: line-through;
+      color: #777;
+    }
+
+    .clue-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .clue-title {
+      font-family: var(--font-headline);
+      font-size: 1.15rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+
+    .clue-body {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      line-height: 1.55;
+      color: var(--text-secondary);
+      flex: 1;
+      margin-bottom: 14px;
+    }
+
+    .clue-footer {
+      border-top: 1px dashed #dcd4c3;
+      padding-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .clue-check-label {
+      font-family: var(--font-ui);
+      font-size: 0.76rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      user-select: none;
+    }
+
+    /* GM Secret Box */
+    .gm-secret-block {
+      display: none;
+      background-color: #fff8dc;
+      border: 1px solid #d4af37;
+      border-left: 3px solid #b8860b;
+      padding: 10px;
+      margin-top: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: #5c4033;
+      border-radius: 2px;
+    }
+
+    .gm-toggle-container {
+      background-color: #2b2520;
+      color: #f7f3eb;
+      padding: 12px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      border: 1px solid #4a4038;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Utility Bar -->
+  <aside class="utility-bar" aria-label="Reading Controls">
+    <div class="utility-container">
+      <div class="utility-left">
+        <span class="edition-badge" style="background:#555;">Restricted Field Desk</span>
+        <span>Reporter's Confidential Scratchpad</span>
+        <span>&bull;</span>
+        <span>File: DN-402</span>
+      </div>
+      <div class="utility-right">
+        <button id="theme-toggle-btn" class="utility-btn">?? Theme: Newsprint</button>
+        <button id="font-decrease-btn" class="utility-btn font-scaler">A-</button>
+        <button id="font-increase-btn" class="utility-btn font-scaler">A+</button>
+        <button class="utility-btn tip-btn open-tip-modal">? Secure Tip Line</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Masthead -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="masthead-meta-top">
+        <div class="meta-col"><strong>INTERNAL WORKING LEDGER</strong></div>
+        <div class="meta-col text-center">
+          <img src="assets/images/masthead-seal.svg" alt="The Daily Dig Seal" width="200" height="46">
+        </div>
+        <div class="meta-col text-right"><strong>NOT FOR BROADCAST</strong></div>
+      </div>
+
+      <div class="masthead-center">
+        <a href="index.html" class="masthead-title-link">
+          <h1 class="masthead-title">The Daily Dig</h1>
+        </a>
+        <p class="masthead-tagline">Dignan Dough's Field Notes &bull; Murder Mystery Clue Catalog</p>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="main-nav" aria-label="Main Navigation">
+      <div class="nav-container">
+        <button class="mobile-menu-toggle">&#9776; Menu</button>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html" class="nav-link">Front Page</a></li>
+          <li class="nav-item"><a href="articles/photojournalism-archive.html" class="nav-link">?? Photo Desk</a></li>
+          <li class="nav-item"><a href="articles/tragic-death-of-wilhelm.html" class="nav-link">Tribute: Wilhelm</a></li>
+          <li class="nav-item"><a href="articles/paul-george-mvp.html" class="nav-link">Sports: Paul George MVP</a></li>
+          <li class="nav-item"><a href="archives.html" class="nav-link">Article Archives</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About the Reporter</a></li>
+        </ul>
+        <button class="nav-search-trigger open-search-modal">?? Search Archive</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="site-main">
+
+    <div class="editorial-breadcrumbs">
+      <a href="index.html">The Daily Dig</a> &gt; <a href="investigations.html">Investigations</a> &gt; <span>Reporter Scratchpad: Case DN-402</span>
+    </div>
+
+    <!-- Notebook Header Container -->
+    <div class="scratchpad-desk">
+      <div class="desk-stamp-top">
+        <span class="stamp stamp-red stamp-large">CONFIDENTIAL</span>
+      </div>
+
+      <span class="kicker">INTERNAL DESK DOSSIER &bull; PENDELTON HOMICIDE</span>
+      <h2 style="font-family:var(--font-headline);font-size:2rem;font-weight:900;margin:6px 0 10px 0;">
+        Dignan Dough's Working Field Scratchpad &amp; Evidence Catalog
+      </h2>
+      <p style="font-family:var(--font-body);font-size:1.05rem;line-height:1.6;color:var(--text-secondary);max-width:820px;margin-bottom:14px;">
+        These notes, transcripts, keypad codes, and forensic anomalies were compiled by Dignan Dough during the first forty-eight hours following Arthur Pendelton's recovery at Alder Creek. Cross-reference these items against published dispatches to establish timelines and motives.
+      </p>
+
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-family:var(--font-mono);font-size:0.8rem;color:var(--text-muted);">
+        <span id="clue-counter" style="color:var(--accent-red);font-weight:700;">0 of 8 LEADS CROSS-REFERENCED</span>
+        <span>&bull;</span>
+        <button id="clear-solved-btn" class="utility-btn" style="color:var(--text-main);border-color:var(--border-dark);">Reset All Checks</button>
+        <span>&bull;</span>
+        <button class="print-action-btn">?? Print Clue Sheet</button>
+      </div>
+    </div>
+
+    <!-- GM / Game Master Mode Toggle Banner -->
+    <div class="gm-toggle-container">
+      <div>
+        <strong style="color:#f3d289;font-family:var(--font-ui);font-size:0.88rem;letter-spacing:0.5px;">
+          ?? GAME MASTER / RPG HELPER MODE
+        </strong>
+        <p style="margin:2px 0 0 0;font-size:0.78rem;color:#ccc;font-family:var(--font-mono);">
+          Toggle ON to reveal GM solution notes, truth behind suspects, and game mechanics for tabletop sessions.
+        </p>
+      </div>
+      <label style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-ui);font-size:0.82rem;font-weight:700;cursor:pointer;">
+        <span>Reveal GM Secrets &amp; Spoilers:</span>
+        <input type="checkbox" id="gm-spoiler-toggle" style="width:18px;height:18px;cursor:pointer;">
+      </label>
+    </div>
+
+    <!-- Filter Buttons & Search -->
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;margin-bottom:16px;">
+      <div class="clue-filter-bar" style="margin:0;padding:0;border:none;">
+        <button class="clue-filter-btn active" data-filter="all">All Evidence (8)</button>
+        <button class="clue-filter-btn" data-filter="physical">Physical Evidence</button>
+        <button class="clue-filter-btn" data-filter="alibi">Alibis &amp; Timelines</button>
+        <button class="clue-filter-btn" data-filter="codes">Codes &amp; Ciphers</button>
+        <button class="clue-filter-btn" data-filter="forensic">Autopsy Anomaly</button>
+      </div>
+      <div style="min-width:240px;">
+        <input type="text" id="clue-search" class="search-input-field" placeholder="Filter clues by keyword..." style="padding:6px 10px;font-size:0.88rem;">
+      </div>
+    </div>
+
+    <!-- ========================================================
+         CLUES GRID (Interactive Cards with GM Spoilers)
+         ======================================================== -->
+    <div class="clue-grid">
+
+      <!-- CLUE 1: The Cut Winch Cable -->
+      <!-- MYSTERY EDIT ZONE: Clue 1 -->
+      <div class="clue-card" data-category="physical" data-clue-id="winch-cable">
+        <div>
+          <div class="clue-meta-row">
+            <span>EVIDENCE #01 &bull; SCENE OF DEATH</span>
+            <span class="stamp stamp-red" style="font-size:0.65rem;padding:2px 4px;">FORENSIC</span>
+          </div>
+          <h3 class="clue-title">Sheared Sluice Gate Control Cable</h3>
+          <div class="clue-body">
+            The steel cable controlling the timber sluice weir was not worn or rusted through. Clean diagonal shear marks indicate industrial 24-inch hydraulic cutters were used. When the cable snapped, the sluice gate dropped violently, generating a vortex current that pulled Arthur Pendelton under.
+          </div>
+          <!-- GM Secret Block -->
+          <div class="gm-secret-block">
+            <strong>GM TRUTH:</strong> Julian Finch owns the exact hydraulic cutter model that left the tool marks. His cutter was coated in oil matching the residue on the cable clamp. Finch was ordered by Mayor Vance to "jam the sluice" so the river basin flooded before dawn.
+          </div>
+        </div>
+        <div class="clue-footer">
+          <label class="clue-check-label">
+            <input type="checkbox" class="clue-checkbox">
+            <span>Cross-Referenced</span>
+          </label>
+          <a href="articles/alder-creek-drowning.html#cable" style="font-size:0.75rem;color:var(--accent-red);font-family:var(--font-mono);font-weight:700;">Inspect Article &rarr;</a>
+        </div>
+      </div>
+
+      <!-- CLUE 2: The Missing 1924 Deed Book -->
+      <!-- MYSTERY EDIT ZONE: Clue 2 -->
+      <div class="clue-card" data-category="codes" data-clue-id="missing-ledger">
+        <div>
+          <div class="clue-meta-row">
+            <span>EVIDENCE #02 &bull; SUB-VAULT 3-C</span>
+            <span class="stamp stamp-red" style="font-size:0.65rem;padding:2px 4px;">THEFT</span>
+          </div>
+          <h3 class="clue-title">Missing 1924 Municipal Deed Book 8</h3>
+          <div class="clue-body">
+            Torn leather binding fragments found on the floor of the county sub-vault. The logbook shows Keycard #04 was swiped at 11:58 PM on October 19. Keycard #04 is assigned to Sheriff Harlan Cross. The deed book contained the irrevocable 99-year public trust clause on Alder Ridge.
+          </div>
+          <div class="gm-secret-block">
+            <strong>GM TRUTH:</strong> Sheriff Cross didn't swipe the card himself—Mayor Vance took Cross's master keycard from the sheriff's cruiser glovebox while Cross was drinking at the Riverfront Club. The missing deed is currently locked in the trunk of Vance's black sedan!
+          </div>
+        </div>
+        <div class="clue-footer">
+          <label class="clue-check-label">
+            <input type="checkbox" class="clue-checkbox">
+            <span>Cross-Referenced</span>
+          </label>
+          <a href="investigations.html#alder-creek" style="font-size:0.75rem;color:var(--accent-red);font-family:var(--font-mono);font-weight:700;">Inspect Vault Log &rarr;</a>
+        </div>
+      </div>
+
+      <!-- CLUE 3: Autopsy Anomaly & Fresh Water -->
+      <!-- MYSTERY EDIT ZONE: Clue 3 -->
+      <div class="clue-card" data-category="forensic" data-clue-id="autopsy-anomaly">
+        <div>
+          <div class="clue-meta-row">
+            <span>EVIDENCE #03 &bull; CORONER MEMO</span>
+            <span class="stamp stamp-black" style="font-size:0.65rem;padding:2px 4px;">MEDICAL</span>
+          </div>
+          <h3 class="clue-title">Lungs Contained Chlorinated Tap Water</h3>
+          <div class="clue-body">
+            Preliminary fluid sample taken by assistant coroner Miller before Sheriff Cross took the specimen jars: <span class="redacted">The water in Pendelton's lungs contained chemical chlorine and pipe minerals, not river algae</span>. Pendelton did not drown in the rushing river. He was drowned elsewhere and deposited in the weir.
+          </div>
+          <div class="gm-secret-block">
+            <strong>GM TRUTH:</strong> Artie was confronted in the industrial wash basin of the Old Ironworks office (which has municipal tap water) by Julian Finch and Vance. When he refused to surrender his briefcase keys, he was held under the maintenance sink.
+          </div>
+        </div>
+        <div class="clue-footer">
+          <label class="clue-check-label">
+            <input type="checkbox" class="clue-checkbox">
+            <span>Cross-Referenced</span>
+          </label>
+          <span style="font-size:0.75rem;font-family:var(--font-mono);color:var(--text-muted);">Confidential Memo #22</span>
+        </div>
+      </div>
+
+      <!-- CLUE 4: Broken Spectacles & Matchbook -->
+      <!-- MYSTERY EDIT ZONE: Clue 4 -->
+      <div class="clue-card" data-category="physical" data-clue-id="matchbook">
+        <div>
+          <div class="clue-meta-row">
+            <span>EVIDENCE #04 &bull; WEIR EMBANKMENT</span>
+            <span class="stamp stamp-red" style="font-size:0.65rem;padding:2px 4px;">TRACE</span>
+          </div>
+          <h3 class="clue-title">Riverfront Club Matchbook with Scribbled Code</h3>
+          <div class="clue-body">
+            Found forty feet from the water's edge in deep mud beside Artie's cracked eyeglasses. The matchbook is from the exclusive Riverfront Club (where Mayor Vance is president). Inside the flap, someone penciled: <span class="redacted">GATE CODE: 7 - 4 - 1 - 9 (STAR)</span>.
+          </div>
+          <div class="gm-secret-block">
+            <strong>GM TRUTH:</strong> This keypad code unlocks the North Private Gate of Sterling Manor leading to the river boathouse! Helena Sterling gave this code to Mayor Vance during private settlement negotiations three weeks earlier.
+          </div>
+        </div>
+        <div class="clue-footer">
+          <label class="clue-check-label">
+            <input type="checkbox" class="clue-checkbox">
+            <span>Cross-Referenced</span>
+          </label>
+          <a href="articles/sterling-manor-breakin.html" style="font-size:0.75rem;color:var(--accent-red);font-family:var(--font-mono);font-weight:700;">Sterling Gate &rarr;</a>
+        </div>
+      </div>
+
+      <!-- CLUE 5: Helena Sterling's 12% Royalty Codicil -->
+      <!-- MYSTERY EDIT ZONE: Clue 5 -->
+      <div class="clue-card" data-category="alibi" data-clue-id="sterling-codicil">
+        <div>
+          <div class="clue-meta-row">
+            <span>EVIDENCE #05 &bull; PROBATE RECORD</span>
+            <span class="stamp stamp-black" style="font-size:0.65rem;padding:2px 4px;">MOTIVE</span>
+          </div>
+          <h3 class="clue-title">Grandfather Codicil: Disputed Parcel 84-C</h3>
+          <div class="clue-body">
+            Helena publicly opposes the resort, yet her grandfather's 1982 will codicil stipulates that if Alder Ridge is rezoned for commercial use, the Sterling Trust automatically receives a 12% perpetual gross royalty on all resort revenues.
+          </div>
+          <div class="gm-secret-block">
+            <strong>GM TRUTH:</strong> Helena is playing both sides: if Vance's vote passes, she makes millions; if Vance is disgraced, she wins the mayor's seat. She intentionally left her study safe unlocked so Vance's operative could steal the 1924 survey without implicating her!
+          </div>
+        </div>
+        <div class="clue-footer">
+          <label class="clue-check-label">
+            <input type="checkbox" class="clue-checkbox">
+            <span>Cross-Referenced</span>
+          </label>
+          <a href="investigations.html#sterling-manor" style="font-size:0.75rem;color:var(--accent-red);font-family:var(--font-mono);font-weight:700;">View Plat 104-D &rarr;</a>
+        </div>
+      </div>
+
+      <!-- CLUE 6: Julian Finch's Muddy Flatbed -->
+      <!-- MYSTERY EDIT ZONE: Clue 6 -->
+      <div class="clue-card" data-category="physical" data-clue-id="finch-truck">
+        <div>
+          <div class="clue-meta-row">
+            <span>EVIDENCE #06 &bull; SIGHTING &amp; TRACE</span>
+            <span class="stamp stamp-red" style="font-size:0.65rem;padding:2px 4px;">VEHICLE</span>
+          </div>
+          <h3 class="clue-title">Twin Rear Tire Track Imprints at Sluice Road</h3>
+          <div class="clue-body">
+            Gravel tire impressions match an International Harvester 4700 dual-axle flatbed. Finch's truck was seen parked outside the scrap yard at 05:00 AM with fresh river reed weeds wrapped around the rear differential and river mud still dripping from the wheel wells.
+          </div>
+          <div class="gm-secret-block">
+            <strong>GM TRUTH:</strong> Finch transported Arthur's body in the truck bed hidden under a tarpaulin of scrap iron, dumping him into the weir at 02:15 AM after cutting the sluice wire. Finch can be pressured to confess if players present the tire plaster casts!
+          </div>
+        </div>
+        <div class="clue-footer">
+          <label class="clue-check-label">
+            <input type="checkbox" class="clue-checkbox">
+            <span>Cross-Referenced</span>
+          </label>
+          <a href="articles/railway-ghost-manifest.html" style="font-size:0.75rem;color:var(--accent-red);font-family:var(--font-mono);font-weight:700;">Finch Haulage File &rarr;</a>
+        </div>
+      </div>
+
+      <!-- CLUE 7: The Mysterious Phone Call at 10:14 PM -->
+      <!-- MYSTERY EDIT ZONE: Clue 7 -->
+      <div class="clue-card" data-category="alibi" data-clue-id="phone-call">
+        <div>
+          <div class="clue-meta-row">
+            <span>EVIDENCE #07 &bull; DIGNAN'S DESK PHONE</span>
+            <span class="stamp stamp-black" style="font-size:0.65rem;padding:2px 4px;">TIMESTAMPS</span>
+          </div>
+          <h3 class="clue-title">Arthur Pendelton's Final Telephone Call</h3>
+          <div class="clue-body">
+            Artie told Dignan Dough: <em>"The 1924 title survey was signed by Mayor Vance's father. It guarantees the entire river basin to the public forever. I photocopied page 44 and hid the duplicate in <span class="redacted">Safety Deposit Box 14 at Blackwood National Bank</span>."</em>
+          </div>
+          <div class="gm-secret-block">
+            <strong>GM TRUTH:</strong> The key to Box 14 was hidden inside the lining of Pendelton's leather hat, which was recovered by the assistant coroner and placed in the personal effects locker at Blackwood Hospital morgue!
+          </div>
+        </div>
+        <div class="clue-footer">
+          <label class="clue-check-label">
+            <input type="checkbox" class="clue-checkbox">
+            <span>Cross-Referenced</span>
+          </label>
+          <span style="font-size:0.75rem;font-family:var(--font-mono);color:var(--text-muted);">Recorded by D. Dough</span>
+        </div>
+      </div>
+
+      <!-- CLUE 8: The Anonymous 911 Caller's Accent -->
+      <!-- MYSTERY EDIT ZONE: Clue 8 -->
+      <div class="clue-card" data-category="codes" data-clue-id="caller-id">
+        <div>
+          <div class="clue-meta-row">
+            <span>EVIDENCE #08 &bull; EMERGENCY WIRE</span>
+            <span class="stamp stamp-red" style="font-size:0.65rem;padding:2px 4px;">AUDIO</span>
+          </div>
+          <h3 class="clue-title">Voice Analysis of the 03:58 AM 911 Caller</h3>
+          <div class="clue-body">
+            Audio recording reveals background jukebox music playing "Blue Valley Waltz", a song only stocked in the jukebox of the River Road Tavern. The caller has a distinct wheezing cough and mentions a municipal Lincoln sedan.
+          </div>
+          <div class="gm-secret-block">
+            <strong>GM TRUTH:</strong> The caller was Deputy Ray Harris, the junior night patrol officer. Harris saw Mayor Vance's car parked at the mill, realized something terrible happened, but was too terrified of Sheriff Cross to identify himself. Harris will testify if players offer him protection!
+          </div>
+        </div>
+        <div class="clue-footer">
+          <label class="clue-check-label">
+            <input type="checkbox" class="clue-checkbox">
+            <span>Cross-Referenced</span>
+          </label>
+          <a href="index.html#wiretap" style="font-size:0.75rem;color:var(--accent-red);font-family:var(--font-mono);font-weight:700;">Listen to Tape &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- GM Guide / Summary Section for Tabletop Mystery Runners -->
+    <section class="gm-secret-block" style="margin-top:36px;padding:20px;border-width:2px;">
+      <h3 style="font-family:var(--font-headline);font-size:1.4rem;color:#4a2c00;margin-bottom:10px;">
+        MASTER SOLUTION: WHAT REALLY HAPPENED ON OCTOBER 19-20?
+      </h3>
+      <p style="font-size:0.92rem;line-height:1.65;color:#332211;margin-bottom:12px;">
+        <strong>The Conspiracy:</strong> Mayor Thaddeus Vance, faced with personal bankruptcy, orchestrated the $40M Alder Ridge Resort plan. Arthur Pendelton discovered that Vance's development company had forged the land title by deleting the 1924 municipal easement.
+      </p>
+      <p style="font-size:0.92rem;line-height:1.65;color:#332211;margin-bottom:12px;">
+        <strong>The Execution:</strong> Vance paid Julian Finch $25,000 to steal the original ledger from the vault. Using Sheriff Harlan Cross's keycard (which Vance swiped from Cross's cruiser while Cross was drinking), Finch took the ledger. When Pendelton confronted them at the Old Ironworks, Finch drowned Artie in the wash sink. They transported Artie to the mill, sheared the weir cable to simulate an accidental fall, and dumped him in the river.
+      </p>
+      <p style="font-size:0.92rem;line-height:1.65;color:#332211;margin-bottom:12px;">
+        <strong>The Victory Condition for Players:</strong> Players win by retrieving the duplicate deed page from Safety Deposit Box 14 (or recovering the original from Vance's Lincoln trunk) and delivering it to Dignan Dough or the District Attorney before the town council vote on Thursday at 7:00 PM!
+      </p>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>The Daily Dig</h4>
+          <p>Confidential field ledger for investigative roleplaying mystery.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Front Page</a></li>
+            <li><a href="investigations.html">Active Investigations</a></li>
+            <li><a href="archives.html">Article Archives</a></li>
+            <li><a href="about.html">About Dignan Dough</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Case References</h4>
+          <ul>
+            <li><a href="articles/alder-creek-drowning.html">Arthur Pendelton Article</a></li>
+            <li><a href="articles/sterling-manor-breakin.html">Sterling Manor Article</a></li>
+            <li><a href="articles/railway-ghost-manifest.html">Rail Line 4 Article</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Field Desk</h4>
+          <p>Dignan Dough &bull; Press Room 4, 14 Courthouse Mews.</p>
+        </div>
+      </div>
+      <div class="footer-bottom-bar">
+        <div>&copy; 2026 The Daily Dig. Fictional Mystery Roleplaying Website.</div>
+        <div class="footer-disclaimer">Setting: Blackwood County &bull; Character: Dignan Dough</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Search & Tip Modals -->
+  <div id="quick-search-modal" class="quick-search-modal">
+    <div class="search-dialog">
+      <div class="search-dialog-header">
+        <h3>Search Archives &amp; Clues</h3>
+        <button id="close-search-modal" class="close-search-btn">&times;</button>
+      </div>
+      <div class="search-dialog-body">
+        <input type="text" id="quick-search-input" class="search-input-field" placeholder="Search clues and evidence...">
+        <ul id="quick-search-results" class="search-results-list"></ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="tip-modal-overlay" class="tip-modal-overlay">
+    <div class="tip-modal-box">
+      <div class="tip-modal-header">
+        <h3>Encrypted Whistleblower Drop</h3>
+        <button id="close-tip-modal" class="close-tip-btn">&times;</button>
+      </div>
+      <div class="tip-modal-body">
+        <form id="tip-submission-form">
+          <div class="tip-input-group">
+            <label for="tip-message">Statement</label>
+            <textarea id="tip-message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="tip-submit-btn">Transmit</button>
+        </form>
+        <div id="tip-success-box" class="tip-success-box"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/clues.js"></script>
+</body>
+</html>

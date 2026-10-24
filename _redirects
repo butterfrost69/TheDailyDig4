@@ -1,0 +1,24 @@
+# Netlify Redirects for The Daily Dig
+# Transparent rewrites for pretty URLs with trailing slashes
+
+/articles/assets/images/*     /assets/images/:splat     200
+/articles/images/*            /assets/images/:splat     200
+/about/assets/images/*        /assets/images/:splat     200
+/about/images/*               /assets/images/:splat     200
+/archives/assets/images/*     /assets/images/:splat     200
+/archives/images/*            /assets/images/:splat     200
+/investigations/assets/images/* /assets/images/:splat   200
+/investigations/images/*      /assets/images/:splat     200
+/research-notes/assets/images/* /assets/images/:splat   200
+/images/*                     /assets/images/:splat     200
+
+# CSS/JS rewrites for pages served with pretty-URL trailing slashes
+/articles/css/*               /css/:splat               200
+/articles/js/*                /js/:splat                200
+/about/css/*                  /css/:splat               200
+/about/js/*                   /js/:splat                200
+/archives/css/*               /css/:splat               200
+/archives/js/*                /js/:splat                200
+
+# 404 fallback
+/*                            /404.html                 404

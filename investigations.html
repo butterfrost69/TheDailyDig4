@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Investigations Hub — The Daily Dig</title>
+  <meta name="description" content="Active investigative dossiers, timelines, and suspect profiles maintained by Dignan Dough.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/newspaper-components.css">
+  <link rel="stylesheet" href="css/print.css" media="print">
+</head>
+<body>
+
+  <!-- Top Utility Bar -->
+  <aside class="utility-bar" aria-label="Reading Controls and Quick Links">
+    <div class="utility-container">
+      <div class="utility-left">
+        <span class="edition-badge">Special Dossier Desk</span>
+        <span>Blackwood Vale, PA</span>
+        <span>&bull;</span>
+        <span>Investigation Bureau</span>
+      </div>
+      <div class="utility-right">
+        <button id="theme-toggle-btn" class="utility-btn">?? Theme: Newsprint</button>
+        <button id="font-decrease-btn" class="utility-btn font-scaler">A-</button>
+        <button id="font-increase-btn" class="utility-btn font-scaler">A+</button>
+        <button class="utility-btn tip-btn open-tip-modal">? Secure Tip Line</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Broadsheet Masthead -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="masthead-meta-top">
+        <div class="meta-col"><strong>Dossier Section</strong> &bull; Volume XXVIII</div>
+        <div class="meta-col text-center">
+          <img src="assets/images/masthead-seal.svg" alt="The Daily Dig Seal" width="200" height="46">
+        </div>
+        <div class="meta-col text-right"><strong>The Daily Dig</strong> &bull; Est. 1998</div>
+      </div>
+
+      <div class="masthead-center">
+        <a href="index.html" class="masthead-title-link">
+          <h1 class="masthead-title">The Daily Dig</h1>
+        </a>
+        <p class="masthead-tagline">Investigative Case Files &amp; Municipal Watchdog Inquiries</p>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="main-nav" aria-label="Main Navigation">
+      <div class="nav-container">
+        <button class="mobile-menu-toggle">&#9776; Menu</button>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html" class="nav-link">Front Page</a></li>
+          <li class="nav-item"><a href="articles/photojournalism-archive.html" class="nav-link">?? Photo Desk</a></li>
+          <li class="nav-item"><a href="articles/tragic-death-of-wilhelm.html" class="nav-link">Tribute: Wilhelm</a></li>
+          <li class="nav-item"><a href="articles/paul-george-mvp.html" class="nav-link">Sports: Paul George MVP</a></li>
+          <li class="nav-item"><a href="archives.html" class="nav-link">Article Archives</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About the Reporter</a></li>
+        </ul>
+        <button class="nav-search-trigger open-search-modal">?? Search Archive</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="site-main">
+
+    <div class="editorial-breadcrumbs">
+      <a href="index.html">The Daily Dig</a> &gt; <span>Active Inquiries &amp; Case Files</span>
+    </div>
+
+    <!-- Section Title Banner -->
+    <div class="section-rule-header" style="margin-top:0;">
+      <h2 class="section-rule-title">Ongoing Investigations &amp; Special Inquiries</h2>
+      <span class="section-rule-subtitle">REPORTER: DIGNAN DOUGH &bull; DESK 14</span>
+    </div>
+
+    <p style="font-size:1.05rem;line-height:1.7;color:var(--text-secondary);max-width:860px;margin-bottom:28px;">
+      The following investigative portfolios represent active inquiries undertaken by <em>The Daily Dig</em>. Each dossier cross-examines official municipal press releases against leaked sub-vault logs, forensic anomalies, court dockets, and verified confidential source testimonies.
+    </p>
+
+    <!-- ========================================================
+         PRIMARY CASE DOSSIER: ALDER CREEK MILL
+         ======================================================== -->
+    <!-- MYSTERY EDIT ZONE: Case DN-402 -->
+    <section id="alder-creek" class="sidebar-box" style="background-color:var(--bg-surface);padding:24px;margin-bottom:36px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;border-bottom:2px solid var(--accent-red);padding-bottom:12px;margin-bottom:16px;">
+        <div>
+          <span class="kicker">PRIMARY HOMICIDE &amp; CORRUPTION DOSSIER</span>
+          <h3 style="font-family:var(--font-headline);font-size:1.8rem;font-weight:900;margin:4px 0;">
+            Case File #DN-402: The Alder Creek Drowning &amp; The Missing 1924 Ledger
+          </h3>
+          <div style="font-family:var(--font-mono);font-size:0.8rem;color:var(--text-muted);">
+            Opened: October 20, 2026 &bull; Status: <strong style="color:var(--accent-red);">ACTIVE / OBSTRUCTED BY SHERIFF</strong>
+          </div>
+        </div>
+        <div>
+          <span class="stamp stamp-red stamp-large">CRITICAL PRIORITY</span>
+        </div>
+      </div>
+
+      <div class="broadsheet-grid">
+        <div>
+          <h4 style="font-family:var(--font-headline);font-size:1.2rem;margin-bottom:8px;">Investigation Summary</h4>
+          <p style="font-size:0.95rem;line-height:1.65;color:var(--text-secondary);margin-bottom:14px;">
+            At 04:15 AM on October 20, the corpse of Arthur Pendelton (Chief Custodian of the Blackwood County Hall of Records) was recovered from the sluice gate of the abandoned Alder Creek Timber Mill. Sheriff Harlan Cross ruled the death an accidental drowning within hours, refusing to order an independent autopsy or secure the crime scene.
+          </p>
+          <p style="font-size:0.95rem;line-height:1.65;color:var(--text-secondary);margin-bottom:14px;">
+            Simultaneously, <span class="redacted">1924 Municipal Deed Book 8</span> was illicitly removed from the courthouse sub-vault. That ledger holds the original public easement grant preventing Mayor Thaddeus Vance's syndicate from constructing the $40 million luxury riverfront resort and golf club.
+          </p>
+
+          <h4 style="font-family:var(--font-headline);font-size:1.1rem;margin:18px 0 8px 0;">Forensic &amp; Physical Evidence Log</h4>
+          <ul style="font-size:0.92rem;color:var(--text-secondary);line-height:1.6;padding-left:18px;margin-bottom:18px;">
+            <li><strong>Sluice Weir Cable #2:</strong> Sheared with industrial hydraulic cable cutters at roughly 01:30 AM.</li>
+            <li><strong>Victim’s Eyeglasses:</strong> Wireframe gold spectacles recovered 40 yards upstream in mud with fresh blood smears (Type O-negative, matching Pendelton).</li>
+            <li><strong>Vehicle Imprints:</strong> Heavy twin-rear-tire truck impressions matching a 1996 International flatbed, leaving heading toward Old Ironworks.</li>
+            <li><strong>Vault Access Keycard:</strong> Sub-vault entry log records Keycard #04 (registered to <span class="redacted">Sheriff Harlan Cross</span>) swiped at 11:58 PM.</li>
+          </ul>
+
+          <div style="display:flex;gap:12px;flex-wrap:wrap;">
+            <a href="articles/alder-creek-drowning.html" class="print-action-btn" style="background:var(--accent-red);color:#fff;border-color:var(--accent-red);">
+              Read Full Front-Page Dispatch &rarr;
+            </a>
+            <a href="research-notes.html#case-402" class="print-action-btn">
+              Cross-Reference Field Notes (Log DN-402)
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <!-- Crime Scene Schematic Preview -->
+          <div style="border:1px solid var(--border-dark);padding:8px;background:var(--bg-card);margin-bottom:14px;">
+            <img src="assets/images/crime-scene-alder.svg" alt="Crime Scene Schematic" style="width:100%;height:auto;display:block;">
+            <div style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-muted);margin-top:6px;text-align:center;">
+              FIGURE 1: Alder Creek Sluice Weir Schematic
+            </div>
+          </div>
+
+          <!-- Redacted Document Preview -->
+          <div style="border:1px solid var(--border-dark);padding:8px;background:var(--bg-card);">
+            <img src="assets/images/redacted-ledger.svg" alt="Sub-Vault Access Log Leaked" style="width:100%;height:auto;display:block;">
+            <div style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-muted);margin-top:6px;text-align:center;">
+              FIGURE 2: Leaked County Vault Logbook (Exhibit B)
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         TIMELINE OF THE NIGHT
+         ======================================================== -->
+    <div class="section-rule-header">
+      <h3 class="section-rule-title">Reconstructed Timeline: October 19&ndash;20, 2026</h3>
+      <span class="section-rule-subtitle">FORENSIC CHRONOLOGY</span>
+    </div>
+
+    <!-- MYSTERY EDIT ZONE: Murder Timeline -->
+    <div class="timeline-track" style="margin-bottom:40px;">
+      <div class="timeline-node">
+        <div class="timeline-marker"></div>
+        <div class="timeline-time">10:14 PM &bull; OCTOBER 19</div>
+        <div class="timeline-desc">
+          <strong>Artie Pendelton calls Dignan Dough’s home telephone:</strong> Pendelton states in an agitated whisper: <em>"They're going to alter the river boundary in the morning. I have the true 1924 parchment in my briefcase. Meet me at the diner at 6 AM before Cross wakes up."</em>
+        </div>
+      </div>
+
+      <div class="timeline-node">
+        <div class="timeline-marker"></div>
+        <div class="timeline-time">11:58 PM &bull; OCTOBER 19</div>
+        <div class="timeline-desc">
+          <strong>Silent alarm tripped at County Hall of Records:</strong> Vault Keycard #04 overrides sub-vault 3-C. Internal security camera #2 was covered with black electrical tape 12 minutes prior.
+        </div>
+      </div>
+
+      <div class="timeline-node">
+        <div class="timeline-marker"></div>
+        <div class="timeline-time">01:45 AM &bull; OCTOBER 20</div>
+        <div class="timeline-desc">
+          <strong>Witness sighting on Old Mill Road:</strong> Night watchman at Blackwood Sand &amp; Gravel spots Julian Finch's flatbed truck driving without headlights past the Alder Creek cutoff.
+        </div>
+      </div>
+
+      <div class="timeline-node">
+        <div class="timeline-marker"></div>
+        <div class="timeline-time">03:58 AM &bull; OCTOBER 20</div>
+        <div class="timeline-desc">
+          <strong>Anonymous 911 Call placed from payphone at River Road Shell Station:</strong> A trembling voice reports a body caught in the timber sluice weir and a dark sedan with municipal seals parked in the tree line.
+        </div>
+      </div>
+
+      <div class="timeline-node">
+        <div class="timeline-marker"></div>
+        <div class="timeline-time">04:15 AM &bull; OCTOBER 20</div>
+        <div class="timeline-desc">
+          <strong>Corpse Recovered:</strong> Public Works crews recover Arthur Pendelton. Sheriff Cross arrives within six minutes and bars press photographers from approaching within 100 yards.
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================
+         PERSONS OF INTEREST / SUSPECT LEDGER
+         ======================================================== -->
+    <div class="section-rule-header">
+      <h3 class="section-rule-title">Suspects &amp; Key Figures Ledger</h3>
+      <span class="section-rule-subtitle">DOSSIER PROFILES</span>
+    </div>
+
+    <div class="broadsheet-grid-even" style="margin-bottom:40px;">
+
+      <!-- Suspect 1: Mayor Thaddeus Vance -->
+      <!-- MYSTERY EDIT ZONE: Suspect 1 Profile -->
+      <div class="sidebar-box">
+        <div class="sidebar-box-header">
+          <h4 class="sidebar-box-title">Thaddeus Vance</h4>
+          <span class="stamp stamp-red">MAYOR</span>
+        </div>
+        <p style="font-size:0.85rem;color:var(--text-muted);font-family:var(--font-mono);margin-bottom:6px;">
+          Age: 54 &bull; In Office: 2018&ndash;Present
+        </p>
+        <p style="font-size:0.9rem;line-height:1.55;color:var(--text-secondary);margin-bottom:10px;">
+          Primary champion of the $40M Alder Ridge Resort initiative. Vance's private development firm secretly holds options on all parcels adjoining the old mill. If Pendelton's 1924 ledger proved the land was public domain, Vance faced bankruptcy and federal indictment.
+        </p>
+        <div style="font-size:0.82rem;font-family:var(--font-mono);border-top:1px dashed var(--border-light);padding-top:6px;color:var(--accent-red);">
+          <strong>STATED ALIBI:</strong> Claims he was dining at the Riverfront Club until 11 PM, then asleep at his residence.
+        </div>
+      </div>
+
+      <!-- Suspect 2: Sheriff Harlan Cross -->
+      <!-- MYSTERY EDIT ZONE: Suspect 2 Profile -->
+      <div class="sidebar-box">
+        <div class="sidebar-box-header">
+          <h4 class="sidebar-box-title">Harlan Cross</h4>
+          <span class="stamp stamp-red">SHERIFF</span>
+        </div>
+        <p style="font-size:0.85rem;color:var(--text-muted);font-family:var(--font-mono);margin-bottom:6px;">
+          Age: 59 &bull; Sheriff: 2012&ndash;Present
+        </p>
+        <p style="font-size:0.9rem;line-height:1.55;color:var(--text-secondary);margin-bottom:10px;">
+          Hasty to declare the drowning an accident. Ordered the weir basin dredged within six hours, destroying trace tire and boot impressions. Financial records show Cross owes $68,000 in gambling arrears to the Dover Harbor Club, guaranteed by Vance's brother.
+        </p>
+        <div style="font-size:0.82rem;font-family:var(--font-mono);border-top:1px dashed var(--border-light);padding-top:6px;color:var(--accent-red);">
+          <strong>STATED ALIBI:</strong> Claims he was on lone highway patrol between Mile Marker 12 and 18; radio was switched off.
+        </div>
+      </div>
+
+      <!-- Suspect 3: Helena Sterling -->
+      <!-- MYSTERY EDIT ZONE: Suspect 3 Profile -->
+      <div class="sidebar-box">
+        <div class="sidebar-box-header">
+          <h4 class="sidebar-box-title">Helena Sterling</h4>
+          <span class="stamp stamp-black">HEIRESS</span>
+        </div>
+        <p style="font-size:0.85rem;color:var(--text-muted);font-family:var(--font-mono);margin-bottom:6px;">
+          Age: 42 &bull; Mayoral Candidate
+        </p>
+        <p style="font-size:0.9rem;line-height:1.55;color:var(--text-secondary);margin-bottom:10px;">
+          Granddaughter of timber baron C.W. Sterling. Running against Vance on an anti-development platform. However, leaked probate records show her estate receives 12% royalties if the mill boundary is rezoned commercial rather than municipal.
+        </p>
+        <div style="font-size:0.82rem;font-family:var(--font-mono);border-top:1px dashed var(--border-light);padding-top:6px;color:var(--accent-red);">
+          <strong>STATED ALIBI:</strong> Claims she was at Sterling Manor drafting election flyers; reported a burglary at midnight.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Secondary Inquiries List -->
+    <div class="section-rule-header">
+      <h3 class="section-rule-title">Supplementary Investigative Portfolios</h3>
+      <span class="section-rule-subtitle">CROSS-REFERENCED FILES</span>
+    </div>
+
+    <div class="broadsheet-grid">
+      <!-- Case 2 -->
+      <div class="secondary-card" id="sterling-manor">
+        <span class="kicker">Case File #DN-398 &bull; Property Encroachment</span>
+        <h4 class="card-headline">
+          <a href="articles/sterling-manor-breakin.html">The Sterling Manor Library Intrusions &amp; Boundary Plat 104-D</a>
+        </h4>
+        <p class="card-snippet">
+          An unauthorized entry into the east wing of Sterling Manor occurred the same night as Pendelton's death. Nothing was stolen except grandfather Charles Sterling's 1924 surveyor journals. Why did the intruder possess the 4-digit security keypad code?
+        </p>
+        <div style="margin-top:8px;">
+          <img src="assets/images/estate-grounds.svg" alt="Sterling Estate Map" style="width:100%;height:auto;max-width:440px;border:1px solid var(--border-dark);">
+        </div>
+      </div>
+
+      <!-- Case 3 -->
+      <div class="secondary-card" id="line-4-rail">
+        <span class="kicker">Case File #DN-387 &bull; Illicit Hazardous Transit</span>
+        <h4 class="card-headline">
+          <a href="articles/railway-ghost-manifest.html">Line 4 Midnight Freight &amp; The Abandoned Ironworks</a>
+        </h4>
+        <p class="card-snippet">
+          Confidential rail dispatchers confirmed three sealed tanker cars transferred chemical waste to Finch Scrap &amp; Haulage on the riverbank. Julian Finch refused to answer reporter questions and threatened this publication with physical violence.
+        </p>
+        <div style="margin-top:10px;">
+          <span class="stamp stamp-red">HAZARD LOGGED</span>
+          <span style="font-size:0.8rem;color:var(--text-muted);margin-left:8px;">Manifest: #CH-8801 &bull; Destination: Alder Riverbank</span>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>The Daily Dig</h4>
+          <p>Blackwood County's uncompromised watchdog. Investigations by Dignan Dough.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Front Page</a></li>
+            <li><a href="investigations.html">Investigations</a></li>
+            <li><a href="archives.html">Article Archives</a></li>
+            <li><a href="about.html">About Dignan Dough</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Case Dossiers</h4>
+          <ul>
+            <li><a href="#alder-creek">Case #DN-402 (Pendelton)</a></li>
+            <li><a href="#sterling-manor">Case #DN-398 (Sterling Estate)</a></li>
+            <li><a href="#line-4-rail">Case #DN-387 (Line 4 Freight)</a></li>
+            <li><a href="research-notes.html" class="secret-case-link">&para; Field Scratchpad (Log DN-402)</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Whistleblowers</h4>
+          <p>Transmit evidence via the secure terminal or mail to Box 19, Blackwood Post Office.</p>
+          <button class="tip-submit-btn open-tip-modal" style="padding:6px 12px;font-size:0.75rem;">Open Drop Box</button>
+        </div>
+      </div>
+      <div class="footer-bottom-bar">
+        <div>&copy; 2026 The Daily Dig. Fictional Roleplaying Mystery.</div>
+        <div class="footer-disclaimer">All characters and incidents in Blackwood County are fictional.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Search Modal -->
+  <div id="quick-search-modal" class="quick-search-modal">
+    <div class="search-dialog">
+      <div class="search-dialog-header">
+        <h3>Search Archives &amp; Dossiers</h3>
+        <button id="close-search-modal" class="close-search-btn">&times;</button>
+      </div>
+      <div class="search-dialog-body">
+        <input type="text" id="quick-search-input" class="search-input-field" placeholder="Search investigations, suspects, or dates...">
+        <ul id="quick-search-results" class="search-results-list"></ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tip Modal -->
+  <div id="tip-modal-overlay" class="tip-modal-overlay">
+    <div class="tip-modal-box">
+      <div class="tip-modal-header">
+        <h3>Encrypted Whistleblower Drop</h3>
+        <button id="close-tip-modal" class="close-tip-btn">&times;</button>
+      </div>
+      <div class="tip-modal-body">
+        <form id="tip-submission-form">
+          <div class="tip-input-group">
+            <label for="tip-target-case">Case Selection</label>
+            <select id="tip-target-case">
+              <option value="alder-creek">Case DN-402: Alder Creek Mill Drowning</option>
+              <option value="sterling-estate">Case DN-398: Sterling Manor Break-in</option>
+              <option value="line-4-rail">Case DN-387: Line 4 Chemical Freight</option>
+            </select>
+          </div>
+          <div class="tip-input-group">
+            <label for="tip-message">Confidential Statement</label>
+            <textarea id="tip-message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="tip-submit-btn">Transmit Secure Information</button>
+        </form>
+        <div id="tip-success-box" class="tip-success-box"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="600" height="360">
+  <defs>
+    <pattern id="grid-dots" width="16" height="16" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="0.8" fill="#c9c0b0"/>
+    </pattern>
+  </defs>
+
+  <!-- Survey Sheet Background -->
+  <rect width="600" height="360" fill="#fdfcf8" stroke="#1a1a1a" stroke-width="2"/>
+  <rect width="600" height="360" fill="url(#grid-dots)"/>
+  <rect x="12" y="12" width="576" height="336" fill="none" stroke="#8b1e1e" stroke-width="1" stroke-dasharray="6,3"/>
+
+  <!-- Survey Header Box -->
+  <rect x="25" y="22" width="280" height="50" fill="#f4efe2" stroke="#1a1a1a" stroke-width="1.2"/>
+  <text x="35" y="40" font-family="'Courier New', monospace" font-size="11" font-weight="bold" fill="#8b1e1e">COUNTY SURVEY PLAT 104-D</text>
+  <text x="35" y="54" font-family="Georgia, serif" font-size="10" fill="#333">Sterling Estate &amp; Alder Ridge Parcel Line</text>
+  <text x="35" y="65" font-family="'Courier New', monospace" font-size="8.5" fill="#666">Surveyed: Oct 1994 | Copied for D. Dough</text>
+
+  <!-- Sterling Manor Footprint -->
+  <rect x="180" y="110" width="140" height="90" fill="#e8dfce" stroke="#1a1a1a" stroke-width="2"/>
+  <text x="250" y="150" font-family="'Playfair Display', Georgia, serif" font-size="12" font-weight="bold" fill="#222" text-anchor="middle">STERLING MANOR</text>
+  <text x="250" y="165" font-family="'Courier New', monospace" font-size="8" fill="#666" text-anchor="middle">(Res. of Helena Sterling)</text>
+
+  <!-- Disputed Timber Boundary Line -->
+  <line x1="60" y1="230" x2="540" y2="230" stroke="#8b1e1e" stroke-width="2.5" stroke-dasharray="8,4"/>
+  <rect x="200" y="220" width="220" height="18" fill="#fff" stroke="#8b1e1e" stroke-width="1"/>
+  <text x="310" y="233" font-family="'Courier New', monospace" font-size="8.5" font-weight="bold" fill="#8b1e1e" text-anchor="middle">DISPUTED MUNICIPAL TIMBER BOUNDARY</text>
+
+  <!-- Old Iron Gate & Keypad Marker -->
+  <circle cx="100" cy="230" r="12" fill="#8b1e1e" stroke="#fff" stroke-width="2"/>
+  <text x="100" y="234" font-family="'Courier New', monospace" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">A</text>
+  <text x="100" y="260" font-family="'Courier New', monospace" font-size="9" font-weight="bold" fill="#1a1a1a" text-anchor="middle">NORTH GATE</text>
+  <text x="100" y="272" font-family="Georgia, serif" font-size="8" fill="#555" text-anchor="middle">Keypad code: * * * *</text>
+
+  <!-- Private River Boathouse -->
+  <rect x="420" y="250" width="90" height="60" fill="#ddd5c4" stroke="#1a1a1a" stroke-width="1.8"/>
+  <text x="465" y="278" font-family="'Courier New', monospace" font-size="10" font-weight="bold" fill="#222" text-anchor="middle">BOATHOUSE</text>
+  <text x="465" y="292" font-family="Georgia, serif" font-size="8" fill="#555" text-anchor="middle">(Private Slipway)</text>
+
+  <!-- Witness Sightings / Clue Pins -->
+  <circle cx="430" cy="220" r="12" fill="#8b1e1e" stroke="#fff" stroke-width="2"/>
+  <text x="430" y="224" font-family="'Courier New', monospace" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">B</text>
+  <text x="485" y="215" font-family="'Courier New', monospace" font-size="8.5" font-weight="bold" fill="#8b1e1e">TRUCK SPOTTED</text>
+  <text x="485" y="227" font-family="Georgia, serif" font-size="7.5" fill="#333">Finch Haulage flatbed</text>
+
+  <!-- Private Carriage / Truck Trail -->
+  <path d="M 100 230 C 120 180, 160 160, 180 160" stroke="#999" stroke-width="6" fill="none" stroke-dasharray="2,3"/>
+  <path d="M 320 160 C 370 170, 400 210, 420 250" stroke="#999" stroke-width="6" fill="none" stroke-dasharray="2,3"/>
+
+  <!-- Compass & Scale -->
+  <g transform="translate(530, 60)">
+    <circle cx="0" cy="0" r="16" fill="#fff" stroke="#1a1a1a" stroke-width="1"/>
+    <polygon points="0,-14 3,0 0,3 -3,0" fill="#8b1e1e"/>
+    <polygon points="0,14 3,0 0,-3 -3,0" fill="#555"/>
+    <text x="0" y="-17" font-family="'Courier New', monospace" font-size="8" font-weight="bold" text-anchor="middle" fill="#8b1e1e">N</text>
+  </g>
+
+  <!-- Stamp -->
+  <g transform="translate(370, 115) rotate(5)">
+    <rect x="0" y="0" width="180" height="28" fill="#fdfbf5" stroke="#8b1e1e" stroke-width="1.5" rx="2"/>
+    <text x="90" y="18" font-family="'Courier New', monospace" font-size="8" font-weight="bold" fill="#8b1e1e" text-anchor="middle">SUBPOENAED PLAT #882-VA</text>
+  </g>
+</svg>

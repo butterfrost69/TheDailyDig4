@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Article Archives — The Daily Dig</title>
+  <meta name="description" content="Streamlined archive of special dispatches, investigative eulogies, sports bulletins, and visual photojournalism portfolios.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/newspaper-components.css">
+  <link rel="stylesheet" href="css/print.css" media="print">
+  <style>
+    .archive-control-panel {
+      background-color: var(--bg-card);
+      border: 2px solid var(--border-dark);
+      padding: 20px;
+      margin-bottom: 28px;
+    }
+
+    .filter-pills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .category-filter-pill {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-dark);
+      padding: 6px 14px;
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      color: var(--text-main);
+      transition: all 0.15s ease;
+    }
+
+    .category-filter-pill:hover {
+      background-color: var(--bg-subtle);
+      border-color: var(--accent-red);
+    }
+
+    .category-filter-pill.active {
+      background-color: var(--accent-red);
+      color: #ffffff;
+      border-color: var(--accent-red);
+    }
+
+    .archive-list-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .archive-item-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-left: 6px solid var(--border-dark);
+      padding: 20px 24px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .archive-item-card:hover {
+      border-left-color: var(--accent-red);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .archive-item-card[data-priority="lead"] {
+      border-left-color: var(--accent-red);
+      background-color: var(--bg-card);
+    }
+
+    .archive-thumb-row {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .archive-thumb {
+      width: 140px;
+      height: 105px;
+      object-fit: cover;
+      border: 1px solid var(--border-dark);
+      flex-shrink: 0;
+      background: #111;
+    }
+
+    @media (max-width: 600px) {
+      .archive-thumb-row {
+        flex-direction: column;
+      }
+      .archive-thumb {
+        width: 100%;
+        height: 180px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Utility Bar -->
+  <aside class="utility-bar" aria-label="Reading Controls">
+    <div class="utility-container">
+      <div class="utility-left">
+        <span class="edition-badge">Archival Desk</span>
+        <span>Curated Dispatches &amp; Primary Wire</span>
+      </div>
+      <div class="utility-right">
+        <button id="theme-toggle-btn" class="utility-btn">?? Theme: Newsprint</button>
+        <button id="font-decrease-btn" class="utility-btn font-scaler">A-</button>
+        <button id="font-increase-btn" class="utility-btn font-scaler">A+</button>
+        <button class="utility-btn tip-btn open-tip-modal">? Secure Tip Line</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Masthead -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="masthead-meta-top">
+        <div class="meta-col"><strong>Curated Vault</strong> &bull; Blackwood Vale</div>
+        <div class="meta-col text-center">
+          <img src="assets/images/masthead-seal.svg" alt="The Daily Dig Seal" width="200" height="46">
+        </div>
+        <div class="meta-col text-right"><strong>The Daily Dig</strong> &bull; Volume XXVIII</div>
+      </div>
+
+      <div class="masthead-center">
+        <a href="index.html" class="masthead-title-link">
+          <h1 class="masthead-title">The Daily Dig</h1>
+        </a>
+        <p class="masthead-tagline">"Veritas Fodere Non Timet" &mdash; Truth Does Not Fear The Spade</p>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="main-nav" aria-label="Main Navigation">
+      <div class="nav-container">
+        <button class="mobile-menu-toggle">&#9776; Menu</button>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html" class="nav-link">Front Page</a></li>
+          <li class="nav-item"><a href="articles/photojournalism-archive.html" class="nav-link">?? Photo Desk</a></li>
+          <li class="nav-item"><a href="articles/tragic-death-of-wilhelm.html" class="nav-link">Tribute: Wilhelm</a></li>
+          <li class="nav-item"><a href="articles/paul-george-mvp.html" class="nav-link">Sports: Paul George MVP</a></li>
+          <li class="nav-item"><a href="archives.html" class="nav-link active">Article Archives</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About the Reporter</a></li>
+        </ul>
+        <button class="nav-search-trigger open-search-modal">?? Search Archive</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="site-main">
+
+    <div class="editorial-breadcrumbs">
+      <a href="index.html">The Daily Dig</a> &gt; <span>Archival Ledger</span>
+    </div>
+
+    <div class="section-rule-header" style="margin-top:0;">
+      <h2 class="section-rule-title">The Curated Dispatches Ledger</h2>
+      <span class="section-rule-subtitle" id="archive-count">3 PRIMARY DISPATCHES</span>
+    </div>
+
+    <!-- Search and Filter Panel -->
+    <div class="archive-control-panel">
+      <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-end;">
+        <div style="flex:1;min-width:240px;">
+          <label for="archive-search" style="display:block;font-family:var(--font-ui);font-size:0.78rem;font-weight:700;text-transform:uppercase;margin-bottom:6px;">
+            Filter by Keyword, Name, or Beat
+          </label>
+          <input type="text" id="archive-search" class="search-input-field" placeholder="e.g. Wilhelm, Paul George, MVP, Photojournalism, Gang...">
+        </div>
+        <div style="width:160px;">
+          <label for="archive-year-select" style="display:block;font-family:var(--font-ui);font-size:0.78rem;font-weight:700;text-transform:uppercase;margin-bottom:6px;">
+            Edition Year
+          </label>
+          <select id="archive-year-select" style="width:100%;padding:10px;border:2px solid var(--border-dark);background:var(--bg-surface);color:var(--text-main);font-family:var(--font-ui);font-size:0.9rem;">
+            <option value="all">All Editions</option>
+            <option value="2026">2026 (Current)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="filter-pills-row">
+        <button class="category-filter-pill active" data-filter="all">All Topics</button>
+        <button class="category-filter-pill" data-filter="memorial">Memorial &amp; Eulogy</button>
+        <button class="category-filter-pill" data-filter="sports">Sports Wire</button>
+        <button class="category-filter-pill" data-filter="visual">Visual &amp; Photo Desk</button>
+      </div>
+    </div>
+
+    <!-- Archive Item List (Streamlined & Decreased) -->
+    <div class="archive-list-container">
+
+      <!-- Article 1: Wilhelm Memorial (Lead) -->
+      <article class="archive-item-card" data-category="memorial" data-year="2026" data-priority="lead">
+        <div class="archive-thumb-row">
+          <picture>
+            <source srcset="assets/images/wilhelm.webp" type="image/webp">
+            <img src="assets/images/wilhelm.jpg" alt="Wilhelm Portrait" class="archive-thumb">
+          </picture>
+          <div style="flex:1;">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;">
+              <span class="kicker">Special Eulogy &bull; Borderlands Memorial</span>
+              <span style="font-family:var(--font-mono);font-size:0.78rem;color:var(--accent-red);font-weight:700;">OCTOBER 20, 2026</span>
+            </div>
+            <h3 class="card-headline" style="margin:4px 0 8px 0;">
+              <a href="articles/tragic-death-of-wilhelm.html">
+                FALL OF A NOBLE GUARDIAN: Community Mourns Cybernetic Humanitarian Wilhelm Slain in Senseless Gang Violence
+              </a>
+            </h3>
+            <p class="card-snippet">
+              A selfless pioneer of cybernetic assistance, devoted neighborhood protector, and beloved titan of duty was cut down at the remote End of the Line rail crossing by an unhinged gang of heavily armed vagrants. Authorities plead for public tips against the "Vault Hunter" syndicate.
+            </p>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;font-family:var(--font-ui);font-size:0.8rem;color:var(--text-muted);">
+              <span>By Senior Correspondent &bull; 5 min read</span>
+              <a href="articles/tragic-death-of-wilhelm.html" style="color:var(--accent-red);font-weight:700;text-decoration:none;">Read Full Memorial &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Article 2: Paul George MVP -->
+      <article class="archive-item-card" data-category="sports" data-year="2026">
+        <div class="archive-thumb-row">
+          <img src="assets/images/paul-george.jpg" alt="Paul George MVP" class="archive-thumb">
+          <div style="flex:1;">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;">
+              <span class="kicker">Sports Desk &bull; National Wire</span>
+              <span style="font-family:var(--font-mono);font-size:0.78rem;color:var(--accent-red);font-weight:700;">OCTOBER 23, 2026</span>
+            </div>
+            <h3 class="card-headline" style="margin:4px 0 8px 0;">
+              <a href="articles/paul-george-mvp.html">
+                HISTORIC CORONATION: Paul George Crowned NBA Most Valuable Player After Electrifying Season
+              </a>
+            </h3>
+            <p class="card-snippet">
+              In a landslide vote capturing 94 of 100 first-place ballots, Paul George hoists the Maurice Podoloff Trophy after delivering an unforgettable 28.5 PPG, 7.8 RPG, and league-leading 2.3 SPG masterclass on both ends of the floor.
+            </p>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;font-family:var(--font-ui);font-size:0.8rem;color:var(--text-muted);">
+              <span>By Senior Correspondent &bull; 4 min read</span>
+              <a href="articles/paul-george-mvp.html" style="color:var(--accent-red);font-weight:700;text-decoration:none;">Read Championship Story &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Article 3: Visual & Photo Portfolio of the Correspondent -->
+      <article class="archive-item-card" data-category="visual" data-year="2026">
+        <div class="archive-thumb-row">
+          <img src="assets/images/pictureme1.jpg" alt="Senior Correspondent Visual Archive" class="archive-thumb">
+          <div style="flex:1;">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;">
+              <span class="kicker">Visual Retrospective &bull; Photo Desk</span>
+              <span style="font-family:var(--font-mono);font-size:0.78rem;color:var(--accent-red);font-weight:700;">SPECIAL EDITION</span>
+            </div>
+            <h3 class="card-headline" style="margin:4px 0 8px 0;">
+              <a href="articles/photojournalism-archive.html">
+                BEHIND THE LENS: The Photographic Archives &amp; Field Chronicles of Our Chief Correspondent
+              </a>
+            </h3>
+            <p class="card-snippet">
+              An exclusive eight-plate photographic exhibition chronicling life on assignment, field investigations, quiet newsroom vigil, and shoe-leather reporting. Features the complete photojournalism series with interactive high-resolution viewer.
+            </p>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;font-family:var(--font-ui);font-size:0.8rem;color:var(--text-muted);">
+              <span>Curated by Senior Correspondent &bull; 8 Master Plates</span>
+              <a href="articles/photojournalism-archive.html" style="color:var(--accent-red);font-weight:700;text-decoration:none;">View Visual Portfolio &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Empty State -->
+    <div id="archive-no-results" style="display:none;padding:40px;text-align:center;background:var(--bg-card);border:2px dashed var(--border-dark);margin-top:20px;">
+      <h3 style="font-family:var(--font-headline);font-size:1.4rem;margin-bottom:8px;">No Matching Dispatches Found</h3>
+      <p style="font-size:0.95rem;color:var(--text-muted);">Try adjusting your search keywords or choosing "All Topics".</p>
+    </div>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>The Daily Dig</h4>
+          <p>The independent investigative voice of Blackwood County. Truth does not fear the spade.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Dispatches</h4>
+          <ul>
+            <li><a href="articles/tragic-death-of-wilhelm.html">Eulogy: The Tragic Death of Wilhelm</a></li>
+            <li><a href="articles/paul-george-mvp.html">Sports: Paul George MVP</a></li>
+            <li><a href="articles/photojournalism-archive.html">?? Chief Correspondent Photo Portfolio</a></li>
+            <li><a href="about.html">About the Publisher</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Confidential Desk</h4>
+          <p>Whistleblowers may deliver tips directly to our encrypted bureau drop.</p>
+          <button class="tip-submit-btn open-tip-modal" style="margin-top:8px;">Submit Secure Tip</button>
+        </div>
+      </div>
+      <div class="footer-bottom-bar">
+        <div>&copy; 2026 The Daily Dig. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/archives.js"></script>
+</body>
+</html>

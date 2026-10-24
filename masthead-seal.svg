@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="320" height="80">
+  <!-- Classic Editorial Crest / Header Seal -->
+  <defs>
+    <style>
+      .seal-line { stroke: #1a1a1a; stroke-width: 1.2; fill: none; }
+      .seal-accent { stroke: #8b1e1e; stroke-width: 1.8; fill: none; }
+      .seal-text { font-family: 'Playfair Display', Georgia, serif; fill: #1a1a1a; }
+      .seal-small { font-family: 'Courier New', monospace; font-size: 8px; letter-spacing: 2px; fill: #555; }
+    </style>
+  </defs>
+  
+  <!-- Left Flourish -->
+  <line x1="10" y1="40" x2="105" y2="40" class="seal-line" />
+  <line x1="25" y1="44" x2="105" y2="44" class="seal-line" stroke-dasharray="3,2" />
+  <circle cx="10" cy="40" r="3" fill="#8b1e1e" />
+  <polygon points="102,37 108,40 102,43" fill="#1a1a1a" />
+
+  <!-- Center Emblem -->
+  <g transform="translate(160, 40)">
+    <circle cx="0" cy="0" r="34" fill="#fdfcf8" stroke="#1a1a1a" stroke-width="2"/>
+    <circle cx="0" cy="0" r="30" fill="none" stroke="#8b1e1e" stroke-width="1" stroke-dasharray="4,2"/>
+    
+    <!-- Quill and Spade Cross -->
+    <!-- Spade -->
+    <path d="M 0 -18 L 8 -4 C 12 4, 3 10, 0 14 C -3 10, -12 4, -8 -4 Z" fill="#1a1a1a"/>
+    <rect x="-1.5" y="14" width="3" height="8" fill="#8b1e1e" />
+    
+    <!-- Quill Pen intersecting -->
+    <path d="M -14 -12 Q -4 0 16 16 L 14 18 Q -4 4 -16 -8 Z" fill="#8b1e1e" opacity="0.9"/>
+    
+    <!-- Lantern Flame / Eye -->
+    <circle cx="0" cy="-6" r="2.5" fill="#fbf9f4" />
+
+    <!-- Stars -->
+    <polygon points="-24,0 -21,-2 -22,1" fill="#8b1e1e" />
+    <polygon points="24,0 21,-2 22,1" fill="#8b1e1e" />
+  </g>
+
+  <!-- Right Flourish -->
+  <line x1="215" y1="40" x2="310" y2="40" class="seal-line" />
+  <line x1="215" y1="44" x2="295" y2="44" class="seal-line" stroke-dasharray="3,2" />
+  <circle cx="310" cy="40" r="3" fill="#8b1e1e" />
+  <polygon points="218,37 212,40 218,43" fill="#1a1a1a" />
+</svg>
